@@ -6,13 +6,13 @@ Formats and Fixes AWX / Ansible Tower Job Outputs
 
 This tool takes a job output file (`job_#####.txt`) and performs the following:
   - Re-combines tasks into one task heading if they were fragmented (such as when using `strategy: free` in a playbook)
-    - Move all "included" events into the header
+    - Moves all "included" events into the header
     - Sorts the events under each section by server name
   - Allows filtering based on system name
 
 By default outputs the corrected file to filename_FORMATTED.ext (no -SystemName parameter) or filename_SystemName.ext (with -SystemName parameter).
 
-Fully support `Get-Help Format-AwxJobOutput`.
+Fully supports `Get-Help Format-AwxJobOutput`.
 
 ## Parameters
 
