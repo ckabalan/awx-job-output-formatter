@@ -14,6 +14,24 @@ By default outputs the corrected file to filename_FORMATTED.ext (no -SystemName 
 
 Fully supports `Get-Help Format-AwxJobOutput`.
 
+## How to Use
+
+When starting a PowerShell session load the function by running `Import-Module .\Path\To\Format-AwxJobOutput.psm1` and then viewing the help with `Get-Help Format-AwxJobOutput`.
+
+To install and autoload permanently:
+- Install `Format-AwxJobOutput` as a module: 
+  - In the same directory as your PowerShell `$profile` script there should be a `Modules` folder
+    - Windows PowerShell Default: `C:\Users\USERNAME\Documents\WindowsPowerShell\Modules\`
+    - PowerShell Core Default: `C:\Users\USERNAME\Documents\PowerShell\Modules\`
+  - Inside the `Modules` folder create a folder named `Format-AwxJobOutput`
+  - Save `Format-AwxJobOutput.psm1` within `Modules\Format-AwxJobOutput\`
+- Autoload the `Format-AwxJobOutput` on PowerShall Start:
+  - Edit or Create your PowerShell `$profile` script:
+    - Windows PowerShell Default: `C:\Users\USERNAME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
+    - PowerShell Core Default: `C:\Users\USERNAME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
+  - Add the line `Import-Module Format-AwxJobOutput`
+- Launch a new PowerShell session and make sure `Get-Help Format-AwxJobOutput` works.
+
 ## Parameters
 
 **-JobOutput [InputFilename]**
