@@ -73,7 +73,7 @@ Function Format-AwxJobOutput {
 	# 		Extracts: SERVER2
 	# SERVER3                 : ok=67   changed=0    unreachable=0    failed=0   
 	# 		Extracts: SERVER3
-	$ServerNameExtractionRegex = '^(?:(?:.+): \[(.+)\](?: => .+)?)?(?:included: (?:.+) for (.+))?(?:([^\s]+)\s+: ok=\d+\s+changed=\d+\s+unreachable=\d+\s+failed=\d+\s+)?$'
+	$ServerNameExtractionRegex = '^(?:(?:.+): \[(.+)\](?:.+=> .+)?)?(?:included: (?:.+) for (.+))?(?:([^\s]+)\s+: ok=\d+\s+changed=\d+\s+unreachable=\d+\s+failed=\d+\s+)?$'
 
 	$JobLog = Get-Content $JobOutput
 
@@ -141,7 +141,7 @@ Function Format-AwxJobOutput {
 			if ($Line.substring(0, 8) -eq 'included') {
 				# Move the includeds to the header since they're ALWAYS out of place
 				$ParsedData['HEADER'] += $Line
-			} else {
+			} elseif ($Line.substring(0, 11) -ne '...ignoring') {
 				# All other lines get added to the most recent section found
 				$ParsedData[$Section] += $Line
 			}
